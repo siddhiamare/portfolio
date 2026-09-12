@@ -44,6 +44,8 @@ This site auto-deploys to GitHub Pages via GitHub Actions on every push to main.
 
 Contact
 Email: siddhi.amare04@gmail.com
+
 LinkedIn: linkedin.com/in/siddhi-amare
+
 GitHub: github.com/siddhiamare
 
