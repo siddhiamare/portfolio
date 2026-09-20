@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { stack } from "../data/content";
+import { stack, type StackItem } from "../data/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,12 +77,12 @@ export default function Explorations() {
         <div className="grid grid-cols-2 gap-12 md:gap-40 max-w-[1400px] w-full px-6">
           <div ref={colARef} className="flex flex-col gap-8 md:gap-12 items-end pt-24">
             {COL_A.map((item, i) => (
-              <StackCard key={item} label={item} rotate={i % 2 === 0 ? -3 : 3} />
+              <StackCard key={item.label} item={item} rotate={i % 2 === 0 ? -3 : 3} />
             ))}
           </div>
           <div ref={colBRef} className="flex flex-col gap-8 md:gap-12 pt-56">
             {COL_B.map((item, i) => (
-              <StackCard key={item} label={item} rotate={i % 2 === 0 ? 3 : -3} />
+              <StackCard key={item.label} item={item} rotate={i % 2 === 0 ? 3 : -3} />
             ))}
           </div>
         </div>
@@ -91,13 +91,19 @@ export default function Explorations() {
   );
 }
 
-function StackCard({ label, rotate }: { label: string; rotate: number }) {
+function StackCard({ item, rotate }: { item: StackItem; rotate: number }) {
   return (
     <div
-      className="pointer-events-auto aspect-square max-w-[320px] w-full bg-surface border border-stroke rounded-3xl flex items-center justify-center p-6 transition-transform hover:scale-105"
+      className="pointer-events-auto aspect-square max-w-[320px] w-full bg-surface border border-stroke rounded-3xl flex flex-col items-center justify-center gap-4 p-6 transition-transform hover:scale-105"
       style={{ transform: `rotate(${rotate}deg)` }}
     >
-      <span className="text-xl md:text-2xl font-display italic text-center">{label}</span>
+      <img
+        src={`https://skillicons.dev/icons?i=${item.icon}`}
+        alt={item.label}
+        className="w-16 h-16 md:w-20 md:h-20"
+        loading="lazy"
+      />
+      <span className="text-lg md:text-xl font-display italic text-center">{item.label}</span>
     </div>
   );
 }

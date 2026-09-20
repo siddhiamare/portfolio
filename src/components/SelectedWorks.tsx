@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { projects } from "../data/content";
+import ProjectGraphic from "./ProjectGraphic";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -54,6 +55,9 @@ export default function SelectedWorks() {
                   backgroundSize: "4px 4px",
                 }}
               />
+              <div className="absolute -right-6 -bottom-6 w-40 h-40 md:w-56 md:h-56 opacity-20 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none">
+                <ProjectGraphic icon={project.icon} />
+              </div>
               <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
                 <span className="text-xs text-muted uppercase tracking-[0.2em]">
                   {project.tag}

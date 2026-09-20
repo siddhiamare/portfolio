@@ -10,6 +10,8 @@ export const profile = {
     "Building clean, well-tested full-stack applications with Python, Django, and React — with a growing focus on cloud infrastructure and machine learning.",
 };
 
+export type ProjectIcon = "chart" | "cloud" | "grade" | "currency";
+
 export type Project = {
   title: string;
   tag: string;
@@ -17,6 +19,7 @@ export type Project = {
   description: string;
   span: string; // tailwind col-span classes
   aspect: string; // tailwind aspect classes
+  icon: ProjectIcon;
 };
 
 export const projects: Project[] = [
@@ -28,6 +31,7 @@ export const projects: Project[] = [
       "A full-stack ML web app reaching 95%+ accuracy, with a live prediction API and feature engineering across 500+ student records.",
     span: "md:col-span-7",
     aspect: "aspect-[4/3] md:aspect-[16/10]",
+    icon: "chart",
   },
   {
     title: "AWS Photo Booking Platform",
@@ -37,6 +41,7 @@ export const projects: Project[] = [
       "A distributed, serverless booking platform with least-privilege IAM roles and modular, object-oriented backend code.",
     span: "md:col-span-5",
     aspect: "aspect-[4/3] md:aspect-square",
+    icon: "cloud",
   },
   {
     title: "Student Grade Predictor",
@@ -46,6 +51,7 @@ export const projects: Project[] = [
       "An end-to-end ML application predicting academic grades from attendance and study habits, with cross-validated tuning.",
     span: "md:col-span-5",
     aspect: "aspect-[4/3] md:aspect-square",
+    icon: "grade",
   },
   {
     title: "Multi-Currency Converter",
@@ -55,6 +61,7 @@ export const projects: Project[] = [
       "A production full-stack app handling 150+ currencies at 99.5% accuracy, with request/response refactors cutting latency by 30%.",
     span: "md:col-span-7",
     aspect: "aspect-[4/3] md:aspect-[16/10]",
+    icon: "currency",
   },
 ];
 
@@ -87,13 +94,19 @@ export const notes: Note[] = [
   },
 ];
 
-export const stack = [
-  "Python",
-  "Django",
-  "Flask",
-  "React",
-  "AWS Lambda",
-  "DynamoDB",
+export type StackItem = {
+  label: string;
+  // skillicons.dev slug - https://skillicons.dev
+  icon: string;
+};
+
+export const stack: StackItem[] = [
+  { label: "Python", icon: "python" },
+  { label: "Django", icon: "django" },
+  { label: "Flask", icon: "flask" },
+  { label: "React", icon: "react" },
+  { label: "AWS", icon: "aws" },
+  { label: "MySQL", icon: "mysql" },
 ];
 
 export const stats = [
